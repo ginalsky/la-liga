@@ -7,15 +7,11 @@ import org.springframework.stereotype.Service;
 public class TeamService {
 
     private final TeamRepository teamRepository;
-
     @Autowired
     public TeamService(TeamRepository teamRepository) {
         this.teamRepository = teamRepository;
     }
     public Team getTeamByTeamId(int teamId) {
         return teamRepository.getTeamByTeamId(teamId);
-    }
-    public String getTeamByTeamNameByTeamId(int teamId) {
-        return getTeamByTeamId(teamId).getTeamName();
     }
 }
