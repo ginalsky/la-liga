@@ -27,8 +27,8 @@ public class TeamController {
         return teamService.getTeamByTeamId(teamId).getTeamName();
     }
     @GetMapping("/names")
-    public List<String> getTeamsNames(){
-        List<String> teamsNames = new ArrayList<>();
+    public ArrayList<String> getTeamsNames(){
+        ArrayList<String> teamsNames = new ArrayList<>();
         for (int i = 1; i < 20; i++) {
             teamsNames.add(teamService.getTeamByTeamId(i).getTeamName());
         }
