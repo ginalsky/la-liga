@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "teams")
 public class TeamController {
@@ -22,6 +25,14 @@ public class TeamController {
     @GetMapping("/name/{teamId}")
     public String getTeamNameByTeamId(@PathVariable Integer teamId) {
         return teamService.getTeamByTeamId(teamId).getTeamName();
+    }
+    @GetMapping("/names")
+    public List<String> getTeamsNames(){
+        List<String> teamsNames = new ArrayList<>();
+        for (int i = 1; i < 20; i++) {
+            teamsNames.add(teamService.getTeamByTeamId(i).getTeamName());
+        }
+        return teamsNames;
     }
 
 }
